@@ -1,0 +1,51 @@
+﻿@model IEnumerable<University.Models.clientes>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>CLIENTES</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre de la Compañía</th>
+            <th>Nombre de Contacto</th>
+            <th>Cargo de Contacto</th>
+            <th>Dirección</th>
+            <th>Ciudad</th>
+            <th>Región</th>
+            <th>Código Postal</th>
+            <th>País</th>
+            <th>Teléfono</th>
+            <th>Fax</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.NombreCompañia)</td>
+                <td>@Html.DisplayFor(modelItem => item.NombreContacto)</td>
+                <td>@Html.DisplayFor(modelItem => item.CargoContacto)</td>
+                <td>@Html.DisplayFor(modelItem => item.Direccion)</td>
+                <td>@Html.DisplayFor(modelItem => item.Ciudad)</td>
+                <td>@Html.DisplayFor(modelItem => item.Region)</td>
+                <td>@Html.DisplayFor(modelItem => item.CodPostal)</td>
+                <td>@Html.DisplayFor(modelItem => item.Pais)</td>
+                <td>@Html.DisplayFor(modelItem => item.Telefono)</td>
+                <td>@Html.DisplayFor(modelItem => item.Fax)</td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.idCliente }, new { @class = "btn btn-primary btn-sm" })
+                    @Html.ActionLink("Detalles", "Details", new { id = item.idCliente }, new { @class = "btn btn-info btn-sm" })
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idCliente }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
